@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Keitaro wrapper</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Keitaro wrapper</h1>
+    <nav>
+      <button data-tab="create" class="active">Новая кампания</button>
+      <button data-tab="edit">Редактор</button>
+    </nav>
+  </header>
+
+  <main>
+    <div id="notice" hidden></div>
+
+    <section id="create">
+      <form id="create-form">
+        <label>Название<input name="name" placeholder="test_ageev_campaign1" required></label>
+        <label>Гео<input name="geo" placeholder="MX,AU,RO" required></label>
+        <label>Оффер
+          <input name="offer" list="offer-options" placeholder="поиск по названию или ID" autocomplete="off" required>
+        </label>
+        <label>Группа<select name="group_id"></select></label>
+        <label>Домен<select name="domain_id"></select></label>
+        <label>Источник<select name="source_id"></select></label>
+        <button type="submit">Create</button>
+      </form>
+      <div id="created"></div>
+    </section>
+
+    <section id="edit" hidden>
+      <div class="picker">
+        <select id="campaign-select"></select>
+        <span>или ID</span>
+        <input id="campaign-id" type="number" placeholder="ID в Keitaro">
+        <button id="load">Открыть</button>
+      </div>
+      <div id="details"></div>
+    </section>
+  </main>
+
+  <datalist id="offer-options"></datalist>
+  <script src="app.js"></script>
+</body>
+</html>
